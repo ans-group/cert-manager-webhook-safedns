@@ -4,9 +4,9 @@
 
 The webhook can be installed with Helm as below:
 
-* helm repo add ukfast https://ukfast.github.io/helm-charts
-* helm repo update
-* helm install cert-manager-webhook-safedns ukfast/cert-manager-webhook-safedns
+* `helm repo add ukfast https://ukfast.github.io/helm-charts`
+* `helm repo update`
+* `helm install cert-manager-webhook-safedns ukfast/cert-manager-webhook-safedns`
 
 ### Getting started
 
