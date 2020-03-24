@@ -10,13 +10,15 @@ The webhook can be installed with Helm as below:
 
 ### Getting started
 
-The SafeDNS webhook requires an API key with read/write permissions. We must first create a `Secret` containing this API key:
+The SafeDNS webhook requires an API key with read/write permissions. This should be obtained via MyUKFast before continuing
+
+First, we'll create a `Secret` containing our API key:
 
 ```
 kubectl create secret generic safedns-api-key --from-literal=api_key=<API_KEY>
 ```
 
-Next, we'll need configure the `Issuer`:
+Next, we'll configure a LetsEncrypt `Issuer` using the SafeDNS `solver`:
 
 ```
 cat <<EOF | kubectl apply -f -
@@ -42,7 +44,7 @@ spec:
 EOF
 ```
 
-And finally our certificate:
+Finally, we'll create our certificate:
 
 ```
 cat <<EOF | kubectl apply -f -
