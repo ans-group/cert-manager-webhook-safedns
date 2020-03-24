@@ -2,10 +2,11 @@
 
 ### Installing
 
-This repository contains a Helm chart at `deploy/cert-manager-webhook-safedns` to ease deployment. To install with Helm:
+The webhook can be installed with Helm as below:
 
-* cd `deploy/cert-manager-webhook-safedns`
-* helm install cert-manager-webhook-safedns .
+* helm repo add ukfast https://ukfast.github.io/helm-charts
+* helm repo update
+* helm install cert-manager-webhook-safedns ukfast/cert-manager-webhook-safedns
 
 ### Getting started
 
