@@ -1,0 +1,6 @@
+{
+    "apiKeySecretRef": {
+        "name": "safedns-api-key",
+        "key": "api_key"
+    }
+}

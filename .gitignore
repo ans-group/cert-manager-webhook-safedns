@@ -1,0 +1,4 @@
+testdata/safedns/apikey.yml
+_out/
+.devcontainer/
+.vscode/
