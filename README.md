@@ -8,6 +8,28 @@ The webhook can be installed with Helm as below:
 * `helm repo update`
 * `helm install cert-manager-webhook-safedns ukfast/cert-manager-webhook-safedns`
 
+> :warning: Installing via Helm currently requires Kubernetes `v1.17.0` and above (due to missing permissions in `extension-apiserver-authentication-reader`).
+  this can be worked around by either creating a new role/role binding, or adding the following permissions to the `extension-apiserver-authentication-reader` role:
+
+```
+- apiGroups:
+  - ""
+  resourceNames:
+  - extension-apiserver-authentication
+  resources:
+  - configmaps
+  verbs:
+  - list
+- apiGroups:
+  - ""
+  resourceNames:
+  - extension-apiserver-authentication
+  resources:
+  - configmaps
+  verbs:
+  - watch
+```
+
 ### Getting started
 
 The SafeDNS webhook requires an API key with read/write permissions. This should be obtained via MyUKFast before continuing
