@@ -44,7 +44,7 @@ Next, we'll configure a LetsEncrypt `Issuer` using the SafeDNS `solver`:
 
 ```
 cat <<EOF | kubectl apply -f -
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: letsencrypt-prod-safedns
@@ -70,7 +70,7 @@ Finally, we'll create our certificate:
 
 ```
 cat <<EOF | kubectl apply -f -
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: wildcard-example-com
