@@ -4,9 +4,9 @@
 
 The webhook can be installed with Helm as below:
 
-* `helm repo add ukfast https://ukfast.github.io/helm-charts`
+* `helm repo add ans https://ans-group.github.io/helm-charts`
 * `helm repo update`
-* `helm install cert-manager-webhook-safedns ukfast/cert-manager-webhook-safedns`
+* `helm install cert-manager-webhook-safedns ans/cert-manager-webhook-safedns`
 
 > :warning: Installing via Helm currently requires Kubernetes `v1.17.0` and above (due to missing permissions in `extension-apiserver-authentication-reader`).
   this can be worked around by either creating a new role/role binding, or adding the following permissions to the `extension-apiserver-authentication-reader` role:
@@ -30,9 +30,11 @@ The webhook can be installed with Helm as below:
   - watch
 ```
 
+Helm values can be found within the [chart repository](https://github.com/ans-group/helm-charts/tree/master/charts/cert-manager-webhook-safedns)
+
 ### Getting started
 
-The SafeDNS webhook requires an API key with read/write permissions. This should be obtained via MyUKFast before continuing
+The SafeDNS webhook requires an API key with read/write permissions. This should be obtained via the ANS Portal before continuing
 
 First, we'll create a `Secret` containing our API key:
 
@@ -58,7 +60,7 @@ spec:
     - dns01:
         webhook:
           solverName: safedns
-          groupName: acme.k8s.ukfast.io
+          groupName: acme.k8s.ans.io
           config:
             apiKeySecretRef:
               name: safedns-api-key
